@@ -35,7 +35,7 @@ export default function NavBar({notes,setNotes,order,setOrder}:any){
                         {showDropdown && 
                         <div 
                             className=" flex flex-col  text-gray-800 rounded shadow-sm w-24 bg-blue-300 z-10 absolute">
-                            <Link href="/home" className="p-2 rounded hover:bg-blue-200">Home</Link>
+                            <Link href="/" className="p-2 rounded hover:bg-blue-200">Home</Link>
                             <Link href="/profile" className="p-2 rounded hover:bg-blue-200">Profile</Link>
                             <a onClick={()=>{
                                 signout()
@@ -57,7 +57,7 @@ export default function NavBar({notes,setNotes,order,setOrder}:any){
                           notes &&  setOrder(!order)
                         }
                     }
-                        className=" cursor-pointer hover:opacity-[0.5"/>
+                        className=" cursor-pointer hover:opacity-[0.5]"/>
                         }
                     </div>
                 

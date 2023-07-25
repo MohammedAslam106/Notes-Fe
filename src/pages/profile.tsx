@@ -29,7 +29,7 @@ export default function EditProfilePicture(){
     )).json()
     if(response){
         console.log(response)
-        // location.reload()
+        location.reload()
     }
     }
 

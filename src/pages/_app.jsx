@@ -3,8 +3,7 @@ import '../app/globals.scss'
 import App from "next/app"
 import { AuthProvider, useAuth } from '@/context/authContext'
 import ProtectRoutes from "@/components/ProtectedRoute"
-import Loading from '@/components/Loading'
-import Loader from 'react-loaders'
+
 const MyApp = ({Component, pageProps}) => {
   return (
     <AuthProvider>

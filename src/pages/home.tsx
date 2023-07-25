@@ -77,7 +77,8 @@ export default function HomePage(){
                                 setEditNotes([eachNote])
                                 console.log('left clicked')
                                 if(rightClick){
-                                    document.querySelectorAll('#check')[ind].checked=!document.querySelectorAll('#check')[ind].checked
+                                    const element=document.querySelectorAll('#check')[ind] as HTMLInputElement 
+                                    element.checked =!element?.checked
                                 }
                                 else{
                                     setIsOpen(true)

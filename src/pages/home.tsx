@@ -6,7 +6,6 @@ import { useState ,useEffect} from "react"
 import request from '../utils/index'
 import { TbHttpDelete, TbPlus, TbSearch, TbX, TbXd } from "react-icons/tb"
 import {MdDelete} from 'react-icons/md'
-import { Dialog, Transition } from "@headlessui/react"
 import Loader from 'react-loaders'
 export default function HomePage(){
     const [isOpen, setIsOpen] = useState(false)
@@ -37,10 +36,9 @@ export default function HomePage(){
     const[note,setNote]=useState('')
     const[search,setSearch]=useState('')
     const [notes,setNotes]=useState([])
-    const[editNotes,setEditNotes]=useState([])
+    const[editNotes,setEditNotes]=useState<any[]>([])
     const[rightClick,setRightClick]=useState(false)
     const[order,setOrder]=useState(false)
-    const[check,setCheck]=useState('unChecked')
 
     useEffect(()=>{
         const response=async()=>{
@@ -71,7 +69,7 @@ export default function HomePage(){
                 </div>
                     {/* <TbSearch className="relative left-[65%] bottom-7]"/> */}
                 <div className=" my-5 flex flex-col justify-center gap-2">
-                    {notes.map((eachNote,ind)=>{
+                    {notes.map((eachNote:any,ind)=>{
                         
                         return(
                             <div
@@ -103,12 +101,6 @@ export default function HomePage(){
                                 </div>
                                 <div>
                                     {rightClick && <input id="check" className=" rounded-full w-5 h-5" 
-                                        // onFocus={(e)=>{
-                                        //     e.preventDefault()
-                                        //     if(onFocus){
-                                        //         e
-                                        //     }
-                                        // }}
                                       onClick={()=>{
                                         if (!deleting.includes(eachNote._id)){
                                             setDeleting((prev)=>[eachNote._id, ...prev])

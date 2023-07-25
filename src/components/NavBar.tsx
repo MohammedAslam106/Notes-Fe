@@ -2,7 +2,6 @@
 import { useState,useEffect } from "react";
 import {FcAlphabeticalSortingAz} from 'react-icons/fc'
 import {BsFillCalendarDateFill} from 'react-icons/bs'
-import MyPicture from '../../public/assets/bg-profile.png'
 import Link from "next/link";
 import { useAuth } from "@/context/authContext";
 import Image from "next/image";
@@ -10,7 +9,7 @@ import Image from "next/image";
 
 
 
-export default function NavBar({notes,setNotes,order,setOrder}){
+export default function NavBar({notes}:{notes:any},{setNotes}:{setNotes:any},{order}:{order:any},{setOrder}:{setOrder:any}){
     const {currentUser}=useAuth()
     // const [order,setOrder]=useState(false)
     const [showDropdown,setShowDropdown]=useState(false)
@@ -54,7 +53,7 @@ export default function NavBar({notes,setNotes,order,setOrder}){
                     className=" cursor-pointer"/>:
                         <FcAlphabeticalSortingAz color="black" size={30} onClick={()=>{
                            notes && setNotes(notes?.sort(
-                                (p1, p2) => 
+                                (p1:any, p2:any) => 
                                 (p1.title < p2.title) ? -1 : (p1.title > p2.title) ? 1 : 0))
                           notes &&  setOrder(!order)
                         }

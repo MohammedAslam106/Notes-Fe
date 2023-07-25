@@ -9,9 +9,8 @@ import Image from "next/image";
 
 
 
-export default function NavBar({notes}:{notes:any},{setNotes}:{setNotes:any},{order}:{order:any},{setOrder}:{setOrder:any}){
+export default function NavBar({notes,setNotes,order,setOrder}:any){
     const {currentUser}=useAuth()
-    // const [order,setOrder]=useState(false)
     const [showDropdown,setShowDropdown]=useState(false)
     const {signout}=useAuth()
 

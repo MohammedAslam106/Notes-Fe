@@ -10,7 +10,7 @@ import Loader from 'react-loaders'
 export default function HomePage(){
     const [isOpen, setIsOpen] = useState(false)
     const [points,setPoints]=useState({x:0,y:0})
-    const [deleting,setDeleting]=useState([])
+    const [deleting,setDeleting]=useState<any[]>([])
     const createNote=async()=>{
         if(!editNotes.length){
             await request("notes",{method:'POST',body:{title:title,note:note}}).then((res)=>{
@@ -136,7 +136,7 @@ export default function HomePage(){
                         <br />
                         <div className="flex flex-col">
                             <label htmlFor="Note">Write your Note</label> <br />
-                            <textarea value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Note..." className="rounded text-gray-500 border border-gray-400 shadow-sm p-2 px-3 -mt-5" name="" id="" cols="10" rows="5"></textarea>
+                            <textarea value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Note..." className="rounded text-gray-500 border border-gray-400 shadow-sm p-2 px-3 -mt-5" name="" id="" cols={10} rows={5}></textarea>
                         </div>
                         <div className=" flex items-end justify-end gap-3 mt-2">
                             <button 

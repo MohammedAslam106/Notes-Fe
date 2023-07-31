@@ -79,6 +79,11 @@ export default function HomePage(){
                                 if(rightClick){
                                     const element=document.querySelectorAll('#check')[ind] as HTMLInputElement 
                                     element.checked =!element?.checked
+                                    if (!deleting.includes(eachNote._id)){
+                                        setDeleting((prev)=>[eachNote._id, ...prev])
+                                    }else{
+                                        setDeleting((prev)=>prev.filter(id=>eachNote._id!==id))
+                                    }
                                 }
                                 else{
                                     setIsOpen(true)
@@ -98,7 +103,6 @@ export default function HomePage(){
                                     <h1 className=" font-bold">{eachNote.title}</h1>
                                     <p className={`  h-6 overflow-hidden max-sm:overflow-hidden max-lg:overflow-hidden`}>{eachNote.note}</p> 
                                     <p>{new Date(eachNote?.createdAt).toUTCString().slice(0,16)}</p>
-                                    
                                 </div>
                                 <div>
                                     {rightClick && <input id="check" className=" rounded-full w-5 h-5" 
